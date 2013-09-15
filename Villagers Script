@@ -1,10 +1,8 @@
-https://github.com/hexdro/ModPE-Scripts/blob/master/Villagers%20Script
+//Villager by Hexdro and Cactigod ©opyright
 
 var lapisBlock=22;
 var whiteWool=35;
 var npc=0;
-
-var mob = null;
 var itemHeld =getCarriedItem();
 
 function useItem (x, y, z,itemId, blockId, side)
