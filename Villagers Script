@@ -1,0 +1,43 @@
+var lapisBlock=22;
+var whiteWool=35;
+var npc=0;
+
+var mob = null;
+var itemHeld =getCarriedItem();
+
+function useItem (x, y, z,itemId, blockId, side)
+{
+if(blockId == lapisBlock && itemId == whiteWool && getTile(x,y-1,z) == lapisBlock)
+{
+preventDefault();
+setTile(x, y-1, z, 0);
+setTile(x, y, z, 0);
+setTile(x, y+1, z, 0);
+clientMessage("<villager> Hi");
+spawnPigZombie (x, y-1, z, 280, "mob/char.png");
+addItemInventory(whiteWool,-1);
+damage
+npc=1;
+}
+}
+function attackHook (attacker, victim)
+{
+if (itemHeld==0&&npc==1)
+{
+clientMessage("<villager> It Hurts");
+npc=2;
+}
+else if (itemHeld==0&&npc==2)
+{
+clientMessage("<villager> Stop");
+npc=3;
+}
+else if (itemHeld==0&&npc==3)
+{
+npc=0
+addItemInventory(280,3);
+clientMessage("<villager> Bye");
+}
+}
+
+
